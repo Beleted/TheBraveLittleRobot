@@ -74,6 +74,5 @@ autostart = true
 script/script = ExtResource( 4 )
 
 [connection signal="timeout" from="beleted/Timer" to="beleted/Timer" method="_on_Timer_timeout"]
->>>>>>> master
 
 
