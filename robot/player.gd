@@ -18,7 +18,7 @@ func _fixed_process(delta):
    
    direction = Vector2()
 
-   var myglobal = get_node("/root/myglobal")
+   var myglobal = get_node("/root/global")
 
    if player_input:
        myglobal.is_moving = true
@@ -40,5 +40,11 @@ func _fixed_process(delta):
 
    var velocity = direction.normalized() * speed * delta
 
-   print (velocity)
+   if Input.is_action_pressed("ui_select"):
+      if is_colliding():
+          get_parent().get_node("Crate").get_child(3).hide()
+          get_parent().get_node("Crate").get_child(1).show()
+          print("maybe")
+
+   #print (velocity)
    move(velocity)
