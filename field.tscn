@@ -1,64 +1,54 @@
-[gd_scene load_steps=32 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://global.gd" type="Script" id=1]
-[ext_resource path="res://artificial-turf.jpg" type="Texture" id=2]
-[ext_resource path="res://robot/player.gd" type="Script" id=3]
-[ext_resource path="res://robot/Idle0.png" type="Texture" id=4]
-[ext_resource path="res://robot/Idle1.png" type="Texture" id=5]
-[ext_resource path="res://robot/Idle2.png" type="Texture" id=6]
-[ext_resource path="res://robot/Idle3.png" type="Texture" id=7]
-[ext_resource path="res://robot/Idle4.png" type="Texture" id=8]
-[ext_resource path="res://robot/Idle5.png" type="Texture" id=9]
-[ext_resource path="res://robot/Idle6.png" type="Texture" id=10]
-[ext_resource path="res://robot/Idle7.png" type="Texture" id=11]
-[ext_resource path="res://robot/Idle8.png" type="Texture" id=12]
-[ext_resource path="res://robot/Idle9.png" type="Texture" id=13]
-[ext_resource path="res://robot/idle.gd" type="Script" id=14]
-[ext_resource path="res://robot/Run1.png" type="Texture" id=15]
-[ext_resource path="res://robot/Run2.png" type="Texture" id=16]
-[ext_resource path="res://robot/Run3.png" type="Texture" id=17]
-[ext_resource path="res://robot/Run4.png" type="Texture" id=18]
-[ext_resource path="res://robot/Run5.png" type="Texture" id=19]
-[ext_resource path="res://robot/Run6.png" type="Texture" id=20]
-[ext_resource path="res://robot/Run7.png" type="Texture" id=21]
-[ext_resource path="res://robot/Run8.png" type="Texture" id=22]
-[ext_resource path="res://robot/run.gd" type="Script" id=23]
-[ext_resource path="res://textures/crate_open.png" type="Texture" id=24]
-[ext_resource path="res://textures/crate_closed.png" type="Texture" id=25]
+[ext_resource path="res://robot/player.gd" type="Script" id=2]
+[ext_resource path="res://robot/idle.gd" type="Script" id=3]
+[ext_resource path="res://robot/Run1.png" type="Texture" id=4]
+[ext_resource path="res://robot/Run2.png" type="Texture" id=5]
+[ext_resource path="res://robot/Run3.png" type="Texture" id=6]
+[ext_resource path="res://robot/Run4.png" type="Texture" id=7]
+[ext_resource path="res://robot/Run5.png" type="Texture" id=8]
+[ext_resource path="res://robot/Run6.png" type="Texture" id=9]
+[ext_resource path="res://robot/Run7.png" type="Texture" id=10]
+[ext_resource path="res://robot/Run8.png" type="Texture" id=11]
+[ext_resource path="res://robot/run.gd" type="Script" id=12]
+[ext_resource path="res://textures/crate_open.png" type="Texture" id=13]
+[ext_resource path="res://textures/crate_closed.png" type="Texture" id=14]
+[ext_resource path="res://station/stationtiles.res" type="TileSet" id=15]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 16 )
 
-[sub_resource type="SpriteFrames" id=1]
-
-animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
-
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "default",
 "speed": 16.0
 } ]
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=4]
 
 shader/shading_mode = 0
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 18, 16 )
@@ -71,48 +61,50 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 520.318, 305.468 )
 transform/scale = Vector2( 2.31838, 2.06355 )
-texture = ExtResource( 2 )
 
 [node name="Robot" type="KinematicBody2D" parent="Background"]
 
+z/z = 1
 input/pickable = false
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 3 )
+script/script = ExtResource( 2 )
 
 [node name="idleani" type="AnimatedSprite" parent="Background/Robot"]
 
 transform/pos = Vector2( -1.29401, 0 )
 transform/scale = Vector2( 0.1, 0.1 )
-frames = SubResource( 1 )
+z/z = 1
+frames = SubResource( 2 )
 animation = "default"
-script/script = ExtResource( 14 )
+script/script = ExtResource( 3 )
 
 [node name="runani" type="AnimatedSprite" parent="Background/Robot"]
 
 visibility/visible = false
 transform/scale = Vector2( 0.1, 0.1 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "default"
-script/script = ExtResource( 23 )
+script/script = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Robot"]
 
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Crate" type="KinematicBody2D" parent="Background"]
 
-material/material = SubResource( 3 )
+material/material = SubResource( 4 )
 transform/pos = Vector2( 116.461, -42.1603 )
+z/z = 1
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -52.1916, 69.2981 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -120,9 +112,10 @@ collision/margin = 0.08
 
 [node name="OpenableArea" type="Area2D" parent="Background/Crate"]
 
+editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 5 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -2, 0 )
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -55.4856, 67.3596 )
 shapes/0/trigger = false
 space_override = 1
 gravity_vec = Vector2( 0, 1 )
@@ -132,8 +125,8 @@ angular_damp = 1.0
 
 [node name="collider_open" type="CollisionShape2D" parent="Background/Crate/OpenableArea"]
 
-transform/pos = Vector2( -2, 0 )
-shape = SubResource( 5 )
+transform/pos = Vector2( -55.4856, 67.3596 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
 
@@ -141,18 +134,42 @@ _update_shape_index = 0
 
 visibility/visible = false
 transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 24 )
+texture = ExtResource( 13 )
+region = true
 region_rect = Rect2( 16, 16, 0, 0 )
 
 [node name="collider" type="CollisionShape2D" parent="Background/Crate"]
 
-shape = SubResource( 4 )
+transform/pos = Vector2( -52.1916, 69.2981 )
+shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Closed" type="Sprite" parent="Background/Crate"]
 
+transform/pos = Vector2( -52.1916, 66.875 )
 transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 25 )
+texture = ExtResource( 14 )
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 15 )
+cell/size = Vector2( 68, 68 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -196597, -1610612733, 15, -1610612733, 65543, -1610612735, 65544, -1610612735, 65545, -1610612735, 65546, -1610612735, 196608, 3, 196614, -1610612734, 262148, 1, 262151, -1073741824, 262152, -1073741824, 262153, -1073741824, 262154, -1073741824, 262156, -1610612735, 262157, 1610612737, 262158, -1610612735, 327684, 1, 327687, -1073741824, 327688, -1073741824, 327689, -1073741824, 327690, -1073741824, 327693, 1610612737, 393220, 1, 393223, -1073741824, 393224, -1073741824, 393225, -1073741824, 393226, -1073741824, 393229, 1610612736, 393231, 1610612738, 458759, 2, 458764, 1610612736, 458765, 1610612736, 458766, 1610612736, 458769, 1610612737, 524297, 1, 524300, 1610612736, 524301, 1610612736, 524302, 1610612736, 524305, 1610612737, 589831, -1073741823, 589832, -1073741823, 589833, -1073741823, 589834, -1073741823, 589845, 1610612739, 720908, -1073741823, 720909, -1073741823, 720910, -1073741823, 851974, -1073741821, 983051, -1073741821 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 
