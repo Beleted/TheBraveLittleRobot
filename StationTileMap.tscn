@@ -2,30 +2,30 @@
 
 [ext_resource path="res://station/stationtiles.jpg" type="Texture" id=1]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 169.385, 0.0467644, 169.634, 68.0284, 136, 68, 136, 0 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
-
-custom_solver_bias = 0.0
-points = Vector2Array( 279.699, 34.6601, 305.597, 59.8108, 305.597, 67.7794, 272.229, 67.5304, 272.229, 34.4111 )
-
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 440.652, 60.8069, 440.652, 67.7794, 408.031, 67.5304, 408.031, 0.793816 )
+points = Vector2Array( 31.5104, 1.37193, 31.5104, 68.0043, -1.451, 68, -1.451, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 440.652, 60.8069, 408.031, 0.793816, 475.016, 0.5448, 467.297, 34.1621 )
+points = Vector2Array( 9.79214, 36.0208, 32.8914, 60.4526, 32.8914, 65.7832, 1.79626, 65.339, 2.24048, 35.1323 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 467.297, 34.1621, 475.016, 0.5448, 475.016, 34.1621 )
+points = Vector2Array( 67.0259, 0.927719, 67.0259, 34.2439, 59.0301, 33.7997, 0.83783, 0.0392914 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 0.83783, 66.2274, 0.83783, 0.0392914, 59.0301, 33.7997, 32.8214, 59.12 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 32.3771, 66.2274, 0.83783, 66.2274, 32.8214, 59.12 )
 
 [node name="StationTileMap" type="Node2D"]
 
@@ -47,8 +47,8 @@ region_rect = Rect2( 416, 791, 68, 68 )
 [node name="StaticBody2D" type="StaticBody2D" parent="grateleftwall"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -136, 0 )
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -59,9 +59,8 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="grateleftwall/StaticBody2D"]
 
-transform/pos = Vector2( -136, 0 )
 build_mode = 0
-polygon = Vector2Array( 136, 0, 136, 68, 169.634, 68.0284, 169.385, 0.0467644 )
+polygon = Vector2Array( -1.451, 0, -1.451, 68, 31.5104, 68.0043, 31.5104, 1.37193 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -76,8 +75,8 @@ region_rect = Rect2( 321, 883, 68, 68 )
 [node name="StaticBody2D" type="StaticBody2D" parent="gratecorner"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -272, 0 )
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -88,9 +87,8 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gratecorner/StaticBody2D"]
 
-transform/pos = Vector2( -272, 0 )
 build_mode = 0
-polygon = Vector2Array( 272.229, 34.4111, 272.229, 67.5304, 305.597, 67.7794, 305.597, 59.8108, 279.699, 34.6601 )
+polygon = Vector2Array( 2.24048, 35.1323, 1.79626, 65.339, 32.8914, 65.7832, 32.8914, 60.4526, 9.79214, 36.0208 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -105,14 +103,14 @@ region_rect = Rect2( 224, 886, 68, 68 )
 [node name="StaticBody2D" type="StaticBody2D" parent="metalcorner"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, -408, 0 )
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 4 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, -408, 0 )
+shapes/1/shape = SubResource( 6 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 5 )
-shapes/2/transform = Matrix32( 1, 0, 0, 1, -408, 0 )
+shapes/2/shape = SubResource( 7 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/2/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -123,9 +121,8 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="metalcorner/StaticBody2D"]
 
-transform/pos = Vector2( -408, 0 )
 build_mode = 0
-polygon = Vector2Array( 408.031, 0.793816, 408.031, 67.5304, 440.652, 67.7794, 440.652, 60.8069, 467.297, 34.1621, 475.016, 34.1621, 475.016, 0.5448 )
+polygon = Vector2Array( 32.3771, 66.2274, 32.8214, 59.12, 59.0301, 33.7997, 67.0259, 34.2439, 67.0259, 0.927719, 0.83783, 0.0392914, 0.83783, 66.2274 )
 shape_range = Vector2( 0, 2 )
 trigger = false
 
