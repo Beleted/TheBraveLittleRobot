@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=1]
+[gd_scene load_steps=27 format=1]
 
 [ext_resource path="res://global.gd" type="Script" id=1]
 [ext_resource path="res://robot/player.gd" type="Script" id=2]
@@ -23,6 +23,11 @@
 [ext_resource path="res://robot/Run8.png" type="Texture" id=21]
 [ext_resource path="res://robot/run.gd" type="Script" id=22]
 [ext_resource path="res://station/stationtiles.res" type="TileSet" id=23]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 15 )
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -54,6 +59,9 @@ transform/scale = Vector2( 2.31838, 2.06355 )
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Background"]
 
 input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -2, 0 )
+shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -73,6 +81,13 @@ transform/scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
 animation = "default"
 script/script = ExtResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/KinematicBody2D"]
+
+transform/pos = Vector2( -2, 0 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
 
 [node name="TileMap" type="TileMap" parent="."]
 
